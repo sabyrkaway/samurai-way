@@ -1,7 +1,9 @@
+import { PageTitle } from '@/components/PageTitle'
+
 export const MainPage = () => {
   return (
-    <div>
-      MainPage
-    </div>
+    <main>
+      <PageTitle />
+    </main>
   )
 }
