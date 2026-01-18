@@ -17,18 +17,19 @@ export const MainPage = () => {
         setSelectedTrackId={setSelectedTrackId}
         setSelectedTrack={setSelectedTrack}
       />
-      <Playlist
-        tracks={tracks}
-        selectedTrackId={selectedTrackId}
-        setTracks={setTracks}
-        setSelectedTrackId={setSelectedTrackId}
-      />
-      <hr />
-      <TrackDetails
-        selectedTrack={selectedTrack}
-        selectedTrackId={selectedTrackId}
-        setSelectedTrack={setSelectedTrack}
-      />
+      <div style={{ display: 'flex', columnGap: '1rem' }}>
+        <Playlist
+          tracks={tracks}
+          selectedTrackId={selectedTrackId}
+          setTracks={setTracks}
+          setSelectedTrackId={setSelectedTrackId}
+        />
+        <TrackDetails
+          selectedTrack={selectedTrack}
+          selectedTrackId={selectedTrackId}
+          setSelectedTrack={setSelectedTrack}
+        />
+      </div>
     </main>
   )
 }
