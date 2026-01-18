@@ -16,7 +16,7 @@ export const Playlist = ({ tracks, selectedTrackId, setTracks, setSelectedTrackI
         'api-key': import.meta.env.VITE_API_KEY,
       },
     }).then(res => res.json()).then((json) => setTracks(json.data))
-  }, [])
+  }, [setTracks])
 
   return (
     <div>
