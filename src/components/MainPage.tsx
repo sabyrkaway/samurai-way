@@ -3,6 +3,7 @@ import { useState } from 'react'
 import type { TrackDetailsResource, TrackListItemResource } from '@/types'
 import { ResetButton } from '@/components/ResetButton'
 import { Playlist } from '@/components/Playlist'
+import { TrackDetails } from '@/components/TrackDetails'
 
 export const MainPage = () => {
   const [tracks, setTracks] = useState<TrackListItemResource[] | null>(null)
@@ -22,6 +23,12 @@ export const MainPage = () => {
         selectedTrackId={selectedTrackId}
         setTracks={setTracks}
         setSelectedTrackId={setSelectedTrackId}
+      />
+      <hr />
+      <TrackDetails
+        selectedTrack={selectedTrack}
+        selectedTrackId={selectedTrackId}
+        setSelectedTrack={setSelectedTrack}
       />
     </main>
   )
