@@ -1,8 +1,9 @@
-import type { TrackDetailsResource, TrackListItemResource } from '@/types'
 import { PageTitle } from '@/components/PageTitle'
 import { useState } from 'react'
 import { ResetButton } from '@/components/ResetButton'
 import { MainContent } from '@/components/MainContent'
+import type { TrackListItemResource } from '@/types/Playlist'
+import type { TrackDetailsResource } from '@/types/TrackDetails'
 
 export const MainPage = () => {
   const [tracks, setTracks] = useState<TrackListItemResource[] | null>(null)

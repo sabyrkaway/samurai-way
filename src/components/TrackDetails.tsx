@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import type { TrackDetailsResource } from '@/types'
+import type { TrackDetailsResource } from '@/types/TrackDetails'
 
 interface Props {
   selectedTrack: TrackDetailsResource | null

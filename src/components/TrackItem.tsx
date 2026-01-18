@@ -1,4 +1,4 @@
-import type { TrackListItemResource } from '@/types'
+import type { TrackListItemResource } from '@/types/Playlist'
 import React from 'react'
 
 interface Props {

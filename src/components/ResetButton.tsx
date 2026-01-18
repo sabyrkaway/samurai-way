@@ -1,5 +1,5 @@
 import React from 'react'
-import type { TrackDetailsResource } from '@/types'
+import type { TrackDetailsResource } from '@/types/TrackDetails'
 
 interface Props {
   setSelectedTrackId: React.Dispatch<React.SetStateAction<string | null>>

@@ -1,4 +1,4 @@
-import type { TrackListItemResource } from '@/types'
+import type { TrackListItemResource } from '@/types/Playlist'
 import React, { useEffect } from 'react'
 import { TrackItem } from '@/components/TrackItem'
 

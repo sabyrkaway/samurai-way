@@ -1,7 +1,8 @@
-import type { TrackDetailsResource, TrackListItemResource } from '@/types'
 import React from 'react'
 import { Playlist } from '@/components/Playlist'
 import { TrackDetails } from '@/components/TrackDetails'
+import type { TrackDetailsResource } from '@/types/TrackDetails'
+import type { TrackListItemResource } from '@/types/Playlist'
 
 interface Props {
   tracks: TrackListItemResource[] | null
