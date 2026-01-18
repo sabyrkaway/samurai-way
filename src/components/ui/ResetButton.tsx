@@ -1,8 +1,9 @@
 import React from 'react'
-import { useStore } from '@/store/useStore'
+import { useSetSelectedTrack, useSetSelectedTrackId } from '@/store/selectors'
 
 export const ResetButton = () => {
-  const { setSelectedTrackId, setSelectedTrack } = useStore()
+  const setSelectedTrackId = useSetSelectedTrackId()
+  const setSelectedTrack = useSetSelectedTrack()
 
   return (
     <button

@@ -1,13 +1,14 @@
 import React from 'react'
-import { useStore } from '@/store/useStore'
 import type { TrackListItemResource } from '@/features/playlist/playlist.types'
+import { useSelectedTrackId, useSetSelectedTrackId } from '@/store/selectors'
 
 interface Props {
   track: TrackListItemResource
 }
 
 export const TrackItem = ({ track }: Props) => {
-  const { selectedTrackId, setSelectedTrackId } = useStore()
+  const selectedTrackId = useSelectedTrackId()
+  const setSelectedTrackId = useSetSelectedTrackId()
 
   return (
     <li

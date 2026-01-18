@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import { TrackItem } from '@/features/playlist/TrackItem'
-import { useStore } from '@/store/useStore'
 import { getPlaylist } from '@/features/playlist/playlist.api.ts.ts'
+import { useSetTracks, useTracks } from '@/store/selectors'
 
 export const Playlist = () => {
-  const { tracks, setTracks } = useStore()
+  const tracks = useTracks()
+  const setTracks = useSetTracks()
 
   useEffect(() => {
     getPlaylist().then((json) => setTracks(json.data))

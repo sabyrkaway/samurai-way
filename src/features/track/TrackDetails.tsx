@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
-import { useStore } from '@/store/useStore'
 import { getTrackDetails } from '@/features/track/track.api'
+import { useSelectedTrack, useSelectedTrackId, useSetSelectedTrack } from '@/store/selectors'
 
 export const TrackDetails = () => {
-  const { selectedTrack, selectedTrackId, setSelectedTrack } = useStore()
+  const selectedTrack = useSelectedTrack()
+  const selectedTrackId = useSelectedTrackId()
+  const setSelectedTrack = useSetSelectedTrack()
 
   useEffect(() => {
     if (!selectedTrackId) return
