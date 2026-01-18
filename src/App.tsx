@@ -82,7 +82,7 @@ export const App = () => {
       <div>
         {!selectedTrackId && <div>No track selected</div>}
         {selectedTrackId && !selectedTrack && <div>Loading...</div>}
-        {selectedTrack && <div>
+        {selectedTrack && <div style={{ opacity: selectedTrack.id !== selectedTrackId ? 0.4 : 1 }}>
           <h2>{selectedTrack.attributes.title}</h2>
           <p>{selectedTrack.attributes.lyrics || 'No lyrics available'}</p>
         </div>}
