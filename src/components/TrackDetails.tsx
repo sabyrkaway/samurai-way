@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react'
-import type { TrackDetailsResource } from '@/types/TrackDetails'
+import { useStore } from '@/store/useStore'
 
-interface Props {
-  selectedTrack: TrackDetailsResource | null
-  selectedTrackId: string | null
-  setSelectedTrack: React.Dispatch<React.SetStateAction<TrackDetailsResource | null>>
-}
+export const TrackDetails = () => {
+  const { selectedTrack, selectedTrackId, setSelectedTrack } = useStore()
 
-export const TrackDetails = ({ selectedTrack, selectedTrackId, setSelectedTrack }: Props) => {
   useEffect(() => {
     if (!selectedTrackId) return
     fetch(`https://musicfun.it-incubator.app/api/1.0/playlists/tracks/${selectedTrackId}`, {

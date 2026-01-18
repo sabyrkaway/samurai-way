@@ -1,15 +1,10 @@
-import type { TrackListItemResource } from '@/types/Playlist'
 import React, { useEffect } from 'react'
 import { TrackItem } from '@/components/TrackItem'
+import { useStore } from '@/store/useStore'
 
-interface Props {
-  tracks: TrackListItemResource[] | null
-  selectedTrackId: string | null
-  setTracks: React.Dispatch<React.SetStateAction<TrackListItemResource[] | null>>
-  setSelectedTrackId: React.Dispatch<React.SetStateAction<string | null>>
-}
+export const Playlist = () => {
+  const { tracks, setTracks } = useStore()
 
-export const Playlist = ({ tracks, selectedTrackId, setTracks, setSelectedTrackId }: Props) => {
   useEffect(() => {
     fetch('https://musicfun.it-incubator.app/api/1.0/playlists/tracks?pageSize=5', {
       headers: {
@@ -24,12 +19,7 @@ export const Playlist = ({ tracks, selectedTrackId, setTracks, setSelectedTrackI
       {tracks?.length === 0 && <div>No tracks available</div>}
       {tracks && <ul>
         {tracks.map((track) => (
-          <TrackItem
-            key={track.id}
-            track={track}
-            selectedTrackId={selectedTrackId}
-            setSelectedTrackId={setSelectedTrackId}
-          />
+          <TrackItem key={track.id} track={track} />
         ))}
       </ul>}
     </div>

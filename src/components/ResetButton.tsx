@@ -1,12 +1,9 @@
 import React from 'react'
-import type { TrackDetailsResource } from '@/types/TrackDetails'
+import { useStore } from '@/store/useStore'
 
-interface Props {
-  setSelectedTrackId: React.Dispatch<React.SetStateAction<string | null>>
-  setSelectedTrack: React.Dispatch<React.SetStateAction<TrackDetailsResource | null>>
-}
+export const ResetButton = () => {
+  const { setSelectedTrackId, setSelectedTrack } = useStore()
 
-export const ResetButton = ({ setSelectedTrackId, setSelectedTrack }: Props) => {
   return (
     <button
       onClick={() => {

@@ -1,16 +1,16 @@
-import type { TrackListItemResource } from '@/types/Playlist'
 import React from 'react'
+import { useStore } from '@/store/useStore'
+import type { TrackListItemResource } from '@/types/Playlist'
 
 interface Props {
   track: TrackListItemResource
-  selectedTrackId: string | null
-  setSelectedTrackId: React.Dispatch<React.SetStateAction<string | null>>
 }
 
-export const TrackItem = ({ track, selectedTrackId, setSelectedTrackId }: Props) => {
+export const TrackItem = ({ track }: Props) => {
+  const { selectedTrackId, setSelectedTrackId } = useStore()
+
   return (
     <li
-      key={track.id}
       onClick={() => setSelectedTrackId(track.id)}
       style={{ border: `1px solid ${track.id === selectedTrackId ? '#646cff' : 'transparent'}` }}
     >
