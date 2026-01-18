@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { TrackItem } from '@/components/TrackItem'
+import { TrackItem } from '@/components/playlist/TrackItem'
 import { useStore } from '@/store/useStore'
-import { getPlaylist } from '@/api/getPlaylist'
+import { getPlaylist } from '@/api/playlist.api.ts.ts'
 
 export const Playlist = () => {
   const { tracks, setTracks } = useStore()

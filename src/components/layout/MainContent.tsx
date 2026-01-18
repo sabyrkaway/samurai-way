@@ -1,6 +1,6 @@
 import React from 'react'
-import { Playlist } from '@/components/Playlist'
-import { TrackDetails } from '@/components/TrackDetails'
+import { Playlist } from '@/components/playlist/Playlist'
+import { TrackDetails } from '@/components/track/TrackDetails'
 
 export const MainContent = () => {
   return (

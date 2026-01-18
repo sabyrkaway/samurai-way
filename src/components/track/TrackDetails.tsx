@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useStore } from '@/store/useStore'
-import { getTrackDetails } from '@/api/getTrackDetails'
+import { getTrackDetails } from '@/api/track.api'
 
 export const TrackDetails = () => {
   const { selectedTrack, selectedTrackId, setSelectedTrack } = useStore()

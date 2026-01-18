@@ -1,6 +1,6 @@
 import { create } from 'zustand'
-import type { TrackListItemResource } from '@/types/Playlist'
-import type { TrackDetailsResource } from '@/types/TrackDetails'
+import type { TrackListItemResource } from '@/types/playlist.types'
+import type { TrackDetailsResource } from '@/types/track.types'
 
 interface Store {
   tracks: TrackListItemResource[] | null
