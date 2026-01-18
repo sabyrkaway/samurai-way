@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react'
 import { useStore } from '@/store/useStore'
+import { getTrackDetails } from '@/api/getTrackDetails'
 
 export const TrackDetails = () => {
   const { selectedTrack, selectedTrackId, setSelectedTrack } = useStore()
 
   useEffect(() => {
     if (!selectedTrackId) return
-    fetch(`https://musicfun.it-incubator.app/api/1.0/playlists/tracks/${selectedTrackId}`, {
-      headers: {
-        'api-key': import.meta.env.VITE_API_KEY,
-      },
-    }).then(res => res.json()).then((json) => setSelectedTrack(json.data))
+    getTrackDetails(selectedTrackId).then((json) => setSelectedTrack(json.data))
   }, [selectedTrackId, setSelectedTrack])
 
   return (
