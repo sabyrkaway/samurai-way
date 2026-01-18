@@ -1,5 +1,5 @@
 import React from 'react'
-import { Playlist } from '@/features/playlist/Playlist/Playlist'
+import { Playlist } from '@/features/playlist/Playlist'
 import { TrackDetails } from '@/features/track/TrackDetails'
 import styles from './MainContent.module.css'
 
