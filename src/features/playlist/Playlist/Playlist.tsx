@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { TrackItem } from '@/features/playlist/TrackItem'
+import { TrackItem } from '@/features/playlist/TrackItem/TrackItem'
 import { getPlaylist } from '@/features/playlist/playlist.api.ts.ts'
 import { useSetTracks, useTracks } from '@/store/selectors'
 

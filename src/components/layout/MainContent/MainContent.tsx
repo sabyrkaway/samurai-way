@@ -1,10 +1,11 @@
 import React from 'react'
-import { Playlist } from '@/features/playlist/Playlist'
+import { Playlist } from '@/features/playlist/Playlist/Playlist'
 import { TrackDetails } from '@/features/track/TrackDetails'
+import styles from './MainContent.module.css'
 
 export const MainContent = () => {
   return (
-    <div style={{ display: 'flex', columnGap: '1rem' }}>
+    <div className={styles.mainContent}>
       <Playlist />
       <TrackDetails />
     </div>

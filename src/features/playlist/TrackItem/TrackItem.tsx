@@ -1,6 +1,8 @@
 import React from 'react'
 import type { TrackListItemResource } from '@/features/playlist/playlist.types'
 import { useSelectedTrackId, useSetSelectedTrackId } from '@/store/selectors'
+import styles from './TrackItem.module.css'
+import clsx from 'clsx'
 
 interface Props {
   track: TrackListItemResource
@@ -13,7 +15,10 @@ export const TrackItem = ({ track }: Props) => {
   return (
     <li
       onClick={() => setSelectedTrackId(track.id)}
-      style={{ border: `1px solid ${track.id === selectedTrackId ? '#646cff' : 'transparent'}` }}
+      className={clsx({
+        [styles.track]: true,
+        [styles.active]: track.id === selectedTrackId,
+      })}
     >
       <div>{track.attributes.title}</div>
       <audio controls src={track.attributes.attachments[0].url} />
