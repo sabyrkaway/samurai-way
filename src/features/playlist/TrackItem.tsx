@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStore } from '@/store/useStore'
-import type { TrackListItemResource } from '@/types/playlist.types'
+import type { TrackListItemResource } from '@/features/playlist/playlist.types'
 
 interface Props {
   track: TrackListItemResource
