@@ -51,7 +51,12 @@ export const App = () => {
     <>
       <h1>MusicFun</h1>
 
-      <button onClick={() => setSelectedTrackId(null)}>
+      <button
+        onClick={() => {
+          setSelectedTrackId(null)
+          setSelectedTrack(null)
+        }}
+      >
         Reset selection
       </button>
 
@@ -75,11 +80,13 @@ export const App = () => {
       <hr />
 
       <div>
-        {selectedTrack === null && <div>Select a track to view details</div>}
+        {!selectedTrackId && <div>No track selected</div>}
+        {selectedTrackId && !selectedTrack && <div>Loading...</div>}
         {selectedTrack && <div>
           <h2>{selectedTrack.attributes.title}</h2>
           <p>{selectedTrack.attributes.lyrics || 'No lyrics available'}</p>
         </div>}
+        {selectedTrackId && selectedTrack && selectedTrack.id !== selectedTrackId && <div>Loading...</div>}
       </div>
     </>
   )
