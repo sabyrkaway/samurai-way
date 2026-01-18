@@ -1,26 +1,30 @@
 import './App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-interface Track {
-  id: number
-  title: string
+interface TrackAttachment {
   url: string
 }
 
+interface TrackListItemAttributes {
+  title: string
+  attachments: TrackAttachment[]
+}
+
+interface TrackListItemResource {
+  id: number
+  attributes: TrackListItemAttributes
+}
+
 export const App = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [tracks, setTracks] = useState<Track[] | null>([
-    {
-      id: 1,
-      title: 'MusicFun Soundtrack',
-      url: 'https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3',
-    },
-    {
-      id: 2,
-      title: 'MusicFun Soundtrack — Instrumental',
-      url: 'https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3',
-    },
-  ])
+  const [tracks, setTracks] = useState<TrackListItemResource[] | null>(null)
+
+  useEffect(() => {
+    fetch('https://musicfun.it-incubator.app/api/1.0/playlists/tracks', {
+      headers: {
+        'api-key': import.meta.env.VITE_API_KEY,
+      },
+    }).then(res => res.json()).then((json) => setTracks(json.data))
+  }, [])
 
   return (
     <>
@@ -28,14 +32,14 @@ export const App = () => {
 
       {tracks === null && <div>Loading...</div>}
       {tracks?.length === 0 && <div>No tracks available</div>}
-      <ul>
-        {tracks?.map(({ id, title, url }) => (
-          <li key={id}>
-            <div>{title}</div>
-            <audio controls src={url} />
+      {tracks && <ul>
+        {tracks.map((track) => (
+          <li key={track.id}>
+            <div>{track.attributes.title}</div>
+            <audio controls src={track.attributes.attachments[0].url} />
           </li>
         ))}
-      </ul>
+      </ul>}
     </>
   )
 }
