@@ -9,7 +9,8 @@ export const Playlist = () => {
 
   useEffect(() => {
     getPlaylist().then((json) => setTracks(json.data))
-  }, [setTracks])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div>
